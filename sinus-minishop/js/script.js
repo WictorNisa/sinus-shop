@@ -64,11 +64,18 @@ header.firstElementChild.addEventListener("click", () => {
   console.log("Found you!");
 });
 
-for (const article of main.children) {
-  const h3 = article.querySelector("h3");
+main.addEventListener("click", (e) => {
+  const article = e.target.closest("article");
+  if (article) {
+    const h3 = article.querySelector("h3"); // Grab the <h3> from the clicked article
+    console.log(`Hi, Im article ${h3.textContent}`); // Log the text content of the <h3>
+  }
+});
 
-  
-  article.addEventListener("click", (e) => {
-    console.log(`Hi, Im article ${h3.textContent}`);
-  });
-}
+// for (const article of main.children) {
+//   const h3 = article.querySelector("h3");
+
+//   article.addEventListener("click", (e) => {
+//     console.log(`Hi, Im article ${h3.textContent}`);
+//   });
+// }
